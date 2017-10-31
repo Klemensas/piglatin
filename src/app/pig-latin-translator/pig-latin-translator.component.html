@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-6 mb-4">
+    <div class="card">
+      <form [formGroup]="translationForm" novalidate>
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">English</h5>
+          <label class="custom-control custom-checkbox mb-0">
+            <input formControlName="useHyphens" type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Use hyphens</span>
+          </label>
+        </div>
+        <div class="card-body">
+          <textarea formControlName="text" autofocus class="form-control"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-6 mb-4">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="mb-0">Pig latin translation</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          <span *ngIf="!translatedText" class="text-secondary">Please enter some text to translate.<br>This translator supports multiple strings.</span>
+          <span style="white-space: pre-wrap;">{{ translatedText }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
