@@ -29,8 +29,8 @@ export class PigLatinTranslatorComponent implements OnInit {
     return text.split(' ')
       .map((string) => {
         return string
-          .replace(/^([aeiou])(\w*)/igm, `$1$2${prefix}ay`)
-          .replace(/^([qu]+|[^aeiou]+)(\w*)/igm, `$2${prefix}$1ay`);
+          .replace(/^([aeiou])([a-z](?:['-]?[a-z])+)/igm, `$1$2${prefix}ay`)
+          .replace(/^([qu]+|[^aeiou]+)([a-z](?:['-]?[a-z])+)/igm, `$2${prefix}$1ay`);
       }).join(' ');
   }
 
