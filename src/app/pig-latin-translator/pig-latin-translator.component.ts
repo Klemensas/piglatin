@@ -16,15 +16,17 @@ export class PigLatinTranslatorComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.translationForm.valueChanges
       .debounceTime(200)
-      .subscribe(({ text, useHyphens }) => this.translate(text, useHyphens));
+      .subscribe(({ text, useHyphens }) => {
+        this.translatedText = this.translate(text, useHyphens);
+      });
   }
 
-  private translate(text, useHyphens) {
+  public translate(text, useHyphens): string {
     const prefix = useHyphens ? '-' : '';
-    this.translatedText = text.split(' ')
+    return text.split(' ')
       .map((string) => {
         return string
           .replace(/^([aeiou])(\w*)/igm, `$1$2${prefix}ay`)

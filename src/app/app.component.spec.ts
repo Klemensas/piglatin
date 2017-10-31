@@ -1,12 +1,19 @@
 import { TestBed, async } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { PigLatinTranslatorComponent } from './pig-latin-translator/pig-latin-translator.component';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        PigLatinTranslatorComponent
       ],
+      imports: [
+        ReactiveFormsModule
+      ]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
